@@ -1,0 +1,31 @@
+= Bug
+
+To reproduce:
+
+[source]
+----
+http http://localhost:9090/person
+----
+
+The `dateCreated` field is displayed as:
+
+[source]
+----
+
+    "dateCreated": [
+        2017,
+        7,
+        16,
+        19,
+        12,
+        17,
+        719000000
+    ],
+
+----
+
+Now, enable `compile('org.springframework.boot:spring-boot-starter-web')` in build.gradle:
+
+And do the above again. The date is formmatted correctly.
+
+In all cases, jackson-datatype-jsr310 is included.
